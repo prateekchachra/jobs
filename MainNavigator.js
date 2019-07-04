@@ -18,10 +18,19 @@ const MainNavigator = createBottomTabNavigator({
         review: {screen: createStackNavigator({
           review: {screen: ReviewScreen},
           settings: {screen: SettingsScreen},
-        })}
+        },
+        {
+          navigationOptions:{
+          tabBarVisible: false
+      }})}
 
 
-      })
+      },
+      {
+        navigationOptions:{
+        tabBarVisible: false
+    }
+  })
     },
   }, {
       lazy: true,
