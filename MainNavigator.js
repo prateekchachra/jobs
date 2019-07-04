@@ -27,9 +27,13 @@ const MainNavigator = createBottomTabNavigator({
 
       },
       {
+        
         navigationOptions:{
-        tabBarVisible: false
-    }
+            tabBarVisible: false
+        },
+        tabBarOptions: {
+          labelStyle: {fontSize: 12}
+        }
   })
     },
   }, {

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Dimensions, StyleSheet, ActivityIndicator } from 'react-native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {connect} from 'react-redux';
-import {Button} from 'react-native-elements';
+import {Button, Icon} from 'react-native-elements';
 
 import * as actions from '../actions';
 // create a component
@@ -11,6 +11,16 @@ import * as actions from '../actions';
 
 const {width, height} = Dimensions.get('window');
 class MapScreen extends Component {
+
+    static navigationOptions = {
+        title: 'Map',
+        tabBar: {
+            icon: ({tintColor}) => {
+                return <Icon name="my-location" size={30} color={tintColor}></Icon>
+            } 
+
+        }
+    }
 
 
     state = {

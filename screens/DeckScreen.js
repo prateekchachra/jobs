@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
-
+import {Icon} from 'react-native-elements';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 import Swipe from '../components/Swipe';
@@ -11,6 +11,16 @@ import {Card} from 'react-native-elements';
 
 // create a component
 class DeckScreen extends Component {
+
+    static navigationOptions = {
+        title: 'Jobs',
+        tabBar: {
+            icon: ({tintColor}) => {
+                return <Icon name="description" size={30} color={tintColor}></Icon>
+            } 
+
+        }
+    }
 
     renderCard(job){    
 
@@ -43,10 +53,15 @@ class DeckScreen extends Component {
         );
     }
 
-    renderNoMoreCards(){
+    renderNoMoreCards = () => {
         return(
             <Card title="No More Jobs">
-
+                <Button 
+                title="Back To Maps"
+                large
+                icon={{name: 'my-location'}}
+                backgroundColor= "#03A9F4"
+                onPress={() => this.props.navigation.navigate('map')}></Button>
             </Card>
         );
 

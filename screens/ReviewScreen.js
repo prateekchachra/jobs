@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet,ScrollView, Linking } from 'react-native';
 import {Button} from 'react-native-elements';
 import {connect} from 'react-redux';
-import {Card, Button} from 'react-native-elements';
+import {Card, Button, Icon} from 'react-native-elements';
 import {MapView} from 'react-native-maps';
 import * as actions from 'actions';
 // create a component
@@ -22,8 +22,14 @@ class ReviewScreen extends Component {
                 backgroundColor="rgba(0,0,0,0)"
                 color="rgba(0,122,255,1)"
                 ></Button>
-  
+
         ),
+        tabBar: {
+            icon: ({tintColor}) => {
+                return <Icon name="favorite" size={30} color={tintColor}></Icon>
+            } 
+
+        }
         }
 }
     renderLikedJobs(){

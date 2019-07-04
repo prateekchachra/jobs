@@ -1,14 +1,35 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Platform, StyleSheet } from 'react-native';
+import {connect} from 'react-redux';
+import {clearLikedJobs} from '../actions';
+import { Button } from 'react-native-elements';
+
+
 
 // create a component
 class SettingsScreen extends Component {
+
+    static navigationOptions = {
+        header: {
+            style:
+            {marginTop: Platform.OS === 'android' ? 24 : 0}
+        }
+
+
+
+    }
+
     render() {
         return (
-            <View style={styles.container}>
-                <Text>SettingsScreen</Text>
-            </View>
+        <View>
+            <Button 
+            title="Reset Liked Jobs"
+            large
+            icon={{name='delete-forever'}}
+            backgroundColor="#F44336"
+            onPress={() => this.props.clearLikedJobs()}/>
+        </View>
         );
     }
 }
@@ -24,4 +45,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default SettingsScreen;
+export default  connect(null, {clearLikedJobs})(SettingsScreen);
